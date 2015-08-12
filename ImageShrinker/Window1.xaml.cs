@@ -217,6 +217,16 @@ namespace ImageShrinker
             EncodeAndSave(Wp8AppIcon, "ApplicationIcon.png", path);
             EncodeAndSave(Wp8FlipMedium, "FlipCycleTileMedium.png", path);
             EncodeAndSave(Wp8FlipSmall, "FlipCycleTileSmall.png", path);
+            EncodeAndSave(Wp8FlipSmall_44, "Square44Logo.png", path);
+            EncodeAndSave(Wp8FlipSmall_50, "Square50Logo.png",path);
+            EncodeAndSave(Wp8FlipSmall_62, "Square62Logo.png", path);
+            EncodeAndSave(Wp8FlipSmall_70, "Square70Logo.png", path);
+            EncodeAndSave(Wp8FlipSmall_71, "Square71Logo.png", path);
+            EncodeAndSave(Wp8FlipSmall_99, "Square99Logo.png", path);
+            EncodeAndSave(Wp8FlipSmall_106, "Square106Logo.png", path);
+            EncodeAndSave(Wp8FlipSmall_150, "Square150Logo.png", path);
+            EncodeAndSave(Wp8FlipSmall_170, "Square170Logo.png", path);
+            EncodeAndSave(Wp8FlipSmall_210, "Square210Logo.png", path);
         }
 
         private void GenerateWin8Icons(string path)
@@ -457,6 +467,19 @@ namespace ImageShrinker
             Wp8AppIcon.Fill = brush;
             Wp8FlipMedium.Fill = brush;
             Wp8FlipSmall.Fill = brush;
+            //Updating to the new windows store.
+            Wp8FlipSmall_44.Fill = brush;
+            Wp8FlipSmall_50.Fill = brush;
+            Wp8FlipSmall_62.Fill = brush;
+            Wp8FlipSmall_70.Fill = brush;
+            Wp8FlipSmall_71.Fill = brush;
+            Wp8FlipSmall_99.Fill = brush;
+            Wp8FlipSmall_50.Fill = brush;
+            Wp8FlipSmall_106.Fill = brush;
+            Wp8FlipSmall_150.Fill = brush;
+            Wp8FlipSmall_170.Fill = brush;
+            Wp8FlipSmall_210.Fill = brush;
+            Wp8FlipSmall_360.Fill = brush;
 
             // Win8
             Win8Logo180.Fill = brush;
