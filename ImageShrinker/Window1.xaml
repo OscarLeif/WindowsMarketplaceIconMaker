@@ -115,6 +115,22 @@
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>
+            <TabItem Header="Android">
+                <ScrollViewer>
+                    <StackPanel>
+                    <TextBlock>ic_launcher.png</TextBlock>
+                        <Rectangle Name="Android_mdpi" Width="48" Height="48" Margin="0,5,0,0" HorizontalAlignment="Center" />
+                        <Rectangle Name="Android_hdpi" Width="72" Height="72" Margin="0,5,0,0" HorizontalAlignment="Center" />
+                        <Rectangle Name="Android_xhdpi" Width="96" Height="96" Margin="0,5,0,0" HorizontalAlignment="Center" />
+                        <Rectangle Name="Android_xxhdpi" Width="144" Height="144" Margin="0,5,0,0" HorizontalAlignment="Center" />
+                        <Rectangle Name="Android_xxxhdpi" Width="192" Height="192" Margin="0,5,0,0" HorizontalAlignment="Center" />
+                    <TextBlock>Google play store.png</TextBlock>
+                        <Rectangle Name="Android_GooglePlay" Width="512" Height="512" Margin="0,5,0,0" HorizontalAlignment="Center" />
+
+                    </StackPanel>
+                </ScrollViewer>
+
+            </TabItem>
             <TabControl.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

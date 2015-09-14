@@ -167,6 +167,7 @@ namespace ImageShrinker
                 GenerateWp7Icons(path);
                 GenerateWp8Icons(path);
                 GenerateWin8Icons(path);
+                GenerateAndroidIcons(path);
 
                 string folder = "On same folder with your image";
                 if (IsPasted) folder = "On your desktop";
@@ -257,6 +258,23 @@ namespace ImageShrinker
             EncodeAndSave(Win8StoreLogo180, "StoreLogo.scale-180.png", path);
             EncodeAndSave(Win8StoreLogo140, "StoreLogo.scale-140.png", path);
             EncodeAndSave(Win8StoreLogo100, "StoreLogo.scale-100.png", path);
+        }
+        private void GenerateAndroidIcons(string path)
+        {
+            path = path + "\\" + projectName.Text + " Android Icons";
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            // Generate the icons
+            EncodeAndSave(Android_mdpi, "ic_launcher_mdpi.png", path);
+            EncodeAndSave(Android_hdpi, "ic_launcher_hdpi.png", path);            
+            EncodeAndSave(Android_xhdpi, "ic_launcher_xhdpi.png", path);
+            EncodeAndSave(Android_xxhdpi, "ic_launcher_xxhdpi.png", path);
+            EncodeAndSave(Android_xxxhdpi, "ic_launcher_xxxhdpi.png", path);
+            EncodeAndSave(Android_GooglePlay, "GooglePlay_icon.png", path);
+
         }
 
         private void EncodeAndSave(FrameworkElement icon, string name, string filePath)
@@ -499,6 +517,15 @@ namespace ImageShrinker
             Win8StoreLogo180.Fill = brush;
             Win8StoreLogo140.Fill = brush;
             Win8StoreLogo100.Fill = brush;
+
+            //Android Icons with google play store
+
+            Android_mdpi.Fill = brush;
+            Android_hdpi.Fill = brush;
+            Android_xhdpi.Fill = brush;
+            Android_xxhdpi.Fill = brush;
+            Android_xxxhdpi.Fill = brush;
+            Android_GooglePlay.Fill = brush;
         }
 
         #endregion MouseMove
