@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows;
@@ -262,18 +263,38 @@ namespace ImageShrinker
         private void GenerateAndroidIcons(string path)
         {
             path = path + "\\" + projectName.Text + " Android Icons";
-            if (!Directory.Exists(path))
+
+            // Generate the Android Icon Res Foldes
+
+            List<string> androidResFolders = new List<string>();
+            androidResFolders.Add(path + "\\" + projectName.Text + "\\drawable-ldpi"); // 120 dpi 
+            androidResFolders.Add(path + "\\" + projectName.Text + "\\drawable-mdpi"); // 160 dpi
+            androidResFolders.Add(path + "\\" + projectName.Text + "\\drawable-hdpi"); // 240 dpi
+            androidResFolders.Add(path + "\\" + projectName.Text + "\\drawable-xhdpi"); // 320 dpi
+            androidResFolders.Add(path + "\\" + projectName.Text + "\\drawable-xxhdpi"); // 480 dpi
+            androidResFolders.Add(path + "\\" + projectName.Text + "\\drawable-xxxhdpi"); // 640 dpi
+            //androidResFolders.Add("\\drawable-nodpi"); // 640 dpi ? not sure
+            //androidResFolders.Add("\\drawable-tvdpi"); // 213 dpi
+
+            foreach (string androidPath in androidResFolders)
             {
-                Directory.CreateDirectory(path);
+                if (!Directory.Exists(androidPath))
+                {
+                    Directory.CreateDirectory(androidPath);
+                }
             }
 
             // Generate the icons
-            EncodeAndSave(Android_mdpi, "ic_launcher_mdpi.png", path);
-            EncodeAndSave(Android_hdpi, "ic_launcher_hdpi.png", path);            
-            EncodeAndSave(Android_xhdpi, "ic_launcher_xhdpi.png", path);
-            EncodeAndSave(Android_xxhdpi, "ic_launcher_xxhdpi.png", path);
-            EncodeAndSave(Android_xxxhdpi, "ic_launcher_xxxhdpi.png", path);
-            EncodeAndSave(Android_GooglePlay, "GooglePlay_icon.png", path);
+
+            string iconName = "app_icon.png";
+
+            EncodeAndSave(Android_ldpi, iconName, androidResFolders.ElementAt(0));
+            EncodeAndSave(Android_mdpi, iconName, androidResFolders.ElementAt(0));
+            EncodeAndSave(Android_hdpi, iconName, androidResFolders.ElementAt(1));            
+            EncodeAndSave(Android_xhdpi, iconName, androidResFolders.ElementAt(2));
+            EncodeAndSave(Android_xxhdpi, iconName, androidResFolders.ElementAt(3));
+            EncodeAndSave(Android_xxxhdpi, iconName, androidResFolders.ElementAt(4));
+            //EncodeAndSave(Android_GooglePlay, iconName, androidResFolders.ElementAt(5));
 
         }
 
