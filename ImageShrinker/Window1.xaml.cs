@@ -120,7 +120,7 @@ namespace ImageShrinker
                 grayImage.Width = 800;
                 grayImage.Height = 600;
             }
-            NewImageDisplayed();
+            //NewImageDisplayed();
         }
 
         // Show Image for file load and drag
@@ -133,6 +133,7 @@ namespace ImageShrinker
             imageSource.EndInit();
 
             grayImage.Source = imageSource;
+
             if (imageSource.PixelHeight < 600 && imageSource.PixelWidth < 800)
             {
                 grayImage.Width = imageSource.PixelWidth;
@@ -220,7 +221,7 @@ namespace ImageShrinker
             EncodeAndSave(Wp8FlipMedium, "FlipCycleTileMedium.png", path);
             EncodeAndSave(Wp8FlipSmall, "FlipCycleTileSmall.png", path);
             EncodeAndSave(Wp8FlipSmall_44, "Square44Logo.png", path);
-            EncodeAndSave(Wp8FlipSmall_50, "Square50Logo.png",path);
+            EncodeAndSave(Wp8FlipSmall_50, "Square50Logo.png", path);
             EncodeAndSave(Wp8FlipSmall_62, "Square62Logo.png", path);
             EncodeAndSave(Wp8FlipSmall_70, "Square70Logo.png", path);
             EncodeAndSave(Wp8FlipSmall_71, "Square71Logo.png", path);
@@ -262,17 +263,18 @@ namespace ImageShrinker
         }
         private void GenerateAndroidIcons(string path)
         {
-            path = path + "\\" + projectName.Text + " Android Icons";
+            //path = path + "\\" + projectName.Text + " Android Icons";
+            path = path + "\\" + " Android Icons";
 
             // Generate the Android Icon Res Foldes
 
             List<string> androidResFolders = new List<string>();
-            androidResFolders.Add(path + "\\" + projectName.Text + "\\drawable-ldpi"); // 120 dpi 
-            androidResFolders.Add(path + "\\" + projectName.Text + "\\drawable-mdpi"); // 160 dpi
-            androidResFolders.Add(path + "\\" + projectName.Text + "\\drawable-hdpi"); // 240 dpi
-            androidResFolders.Add(path + "\\" + projectName.Text + "\\drawable-xhdpi"); // 320 dpi
-            androidResFolders.Add(path + "\\" + projectName.Text + "\\drawable-xxhdpi"); // 480 dpi
-            androidResFolders.Add(path + "\\" + projectName.Text + "\\drawable-xxxhdpi"); // 640 dpi
+            androidResFolders.Add(path + "\\drawable-ldpi"); // 120 dpi 
+            androidResFolders.Add(path + "\\drawable-mdpi"); // 160 dpi
+            androidResFolders.Add(path + "\\drawable-hdpi"); // 240 dpi
+            androidResFolders.Add(path + "\\drawable-xhdpi"); // 320 dpi
+            androidResFolders.Add(path + "\\drawable-xxhdpi"); // 480 dpi
+            androidResFolders.Add(path + "\\drawable-xxxhdpi"); // 640 dpi
             //androidResFolders.Add("\\drawable-nodpi"); // 640 dpi ? not sure
             //androidResFolders.Add("\\drawable-tvdpi"); // 213 dpi
 
@@ -289,11 +291,11 @@ namespace ImageShrinker
             string iconName = "app_icon.png";
 
             EncodeAndSave(Android_ldpi, iconName, androidResFolders.ElementAt(0));
-            EncodeAndSave(Android_mdpi, iconName, androidResFolders.ElementAt(0));
-            EncodeAndSave(Android_hdpi, iconName, androidResFolders.ElementAt(1));            
-            EncodeAndSave(Android_xhdpi, iconName, androidResFolders.ElementAt(2));
-            EncodeAndSave(Android_xxhdpi, iconName, androidResFolders.ElementAt(3));
-            EncodeAndSave(Android_xxxhdpi, iconName, androidResFolders.ElementAt(4));
+            EncodeAndSave(Android_mdpi, iconName, androidResFolders.ElementAt(1));
+            EncodeAndSave(Android_hdpi, iconName, androidResFolders.ElementAt(2));
+            EncodeAndSave(Android_xhdpi, iconName, androidResFolders.ElementAt(3));
+            EncodeAndSave(Android_xxhdpi, iconName, androidResFolders.ElementAt(4));
+            EncodeAndSave(Android_xxxhdpi, iconName, androidResFolders.ElementAt(5));
             //EncodeAndSave(Android_GooglePlay, iconName, androidResFolders.ElementAt(5));
 
         }
@@ -370,7 +372,7 @@ namespace ImageShrinker
             string name = System.IO.Path.GetFileNameWithoutExtension(fileName);
             projectName.Text = name;
             CompleteNotice.Content = notice1;
-            
+
             // WP7
             Wp7Icon300.Fill = null;
             Wp7Icon173.Fill = null;
@@ -402,7 +404,7 @@ namespace ImageShrinker
 
             myCanvas.Children.Remove(rectFrame);
 
-            UpdatePreviewIcons(new Point(0, 0), new Point(imageSource.Width, imageSource.Height));
+            UpdatePreviewIcons(new Point(0, 0), new Point(imageSource.Width*2, imageSource.Height*2));
         }
 
         private string IsSingleFile(DragEventArgs args)
@@ -486,10 +488,11 @@ namespace ImageShrinker
             }
         }
 
-        private void UpdatePreviewIcons(Point lt, Point rb) {
+        private void UpdatePreviewIcons(Point lt, Point rb)
+        {
             // Icon Images
-            Point sourceLt = new Point(lt.X*scale, lt.Y*scale);
-            Point sourceRb = new Point(rb.X*scale, rb.Y*scale);
+            Point sourceLt = new Point(lt.X * scale, lt.Y * scale);
+            Point sourceRb = new Point(rb.X * scale, rb.Y * scale);
 
             ImageBrush brush = new ImageBrush();
             brush.ImageSource = imageSource;
