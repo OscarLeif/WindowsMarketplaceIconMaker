@@ -296,7 +296,8 @@ namespace ImageShrinker
             EncodeAndSave(Android_xhdpi, iconName, androidResFolders.ElementAt(3));
             EncodeAndSave(Android_xxhdpi, iconName, androidResFolders.ElementAt(4));
             EncodeAndSave(Android_xxxhdpi, iconName, androidResFolders.ElementAt(5));
-            //EncodeAndSave(Android_GooglePlay, iconName, androidResFolders.ElementAt(5));
+            EncodeAndSave(AndroidStore_512, "StoreIcon512.png", path);
+            EncodeAndSave(AndroidStore_114, "StoreIcon114.png", path);
 
         }
 
@@ -544,12 +545,14 @@ namespace ImageShrinker
 
             //Android Icons with google play store
 
+            Android_ldpi.Fill = brush;
             Android_mdpi.Fill = brush;
             Android_hdpi.Fill = brush;
             Android_xhdpi.Fill = brush;
             Android_xxhdpi.Fill = brush;
             Android_xxxhdpi.Fill = brush;
-            Android_GooglePlay.Fill = brush;
+            AndroidStore_512.Fill = brush;
+            AndroidStore_114.Fill = brush;
         }
 
         #endregion MouseMove
