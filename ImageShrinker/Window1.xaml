@@ -119,10 +119,10 @@
                 <ScrollViewer>
                     <StackPanel>
                         <TextBlock>ic_launcher.png</TextBlock>
-                        <Rectangle Name="Android_ldpi" Width="36" Height="36" Margin="0,5,0,0" HorizontalAlignment="Center" />
-                        <Rectangle Name="Android_mdpi" Width="48" Height="48" Margin="0,5,0,0" HorizontalAlignment="Center" />
-                        <Rectangle Name="Android_hdpi" Width="72" Height="72" Margin="0,5,0,0" HorizontalAlignment="Center" />
-                        <Rectangle Name="Android_xhdpi" Width="96" Height="96" Margin="0,5,0,0" HorizontalAlignment="Center" />
+                        <Rectangle Name="Android_ldpi" Width="48" Height="48" Margin="0,5,0,0" HorizontalAlignment="Center" />
+                        <Rectangle Name="Android_mdpi" Width="72" Height="72" Margin="0,5,0,0" HorizontalAlignment="Center" />
+                        <Rectangle Name="Android_hdpi" Width="192" Height="192" Margin="0,5,0,0" HorizontalAlignment="Center" />
+                        <Rectangle Name="Android_xhdpi" Width="256" Height="256" Margin="0,5,0,0" HorizontalAlignment="Center" />
                         <Rectangle Name="Android_xxhdpi" Width="144" Height="144" Margin="0,5,0,0" HorizontalAlignment="Center" />
                         <Rectangle Name="Android_xxxhdpi" Width="192" Height="192" Margin="0,5,0,0" HorizontalAlignment="Center" />
                     <TextBlock>Android Store.png</TextBlock>
