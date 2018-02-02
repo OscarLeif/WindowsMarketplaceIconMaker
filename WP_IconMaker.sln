@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+# Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WP_IconMaker", "ImageShrinker\WP_IconMaker.csproj", "{945A2F41-1EEB-4D77-8516-D7A757ACE0D8}"
 EndProject
 Global
