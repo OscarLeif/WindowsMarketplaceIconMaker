@@ -152,7 +152,7 @@ namespace ImageShrinker
         #region SaveIcons
         private async void Save_Click(object sender, RoutedEventArgs e)
         {
-            if (Wp7Icon300.Fill != null)
+            if (Win8Logo180.Fill != null)
             {
                 // due to virtualisation, WPF doesn't render each tab until the SelectedIndex changes
                 // This is a little hack using .Net 4.5 awaitable, it will change the tab, yield back to the UI renderer, then continue.
@@ -166,8 +166,8 @@ namespace ImageShrinker
                 iconTabControl.SelectedIndex = currentIndex;
 
                 string path = System.IO.Path.GetDirectoryName(this.fileName);
-                GenerateWp7Icons(path);
-                GenerateWp8Icons(path);
+                //GenerateWp7Icons(path);
+                //GenerateWp8Icons(path);
                 GenerateWin8Icons(path);
                 GenerateAndroidIcons(path);
 
@@ -192,6 +192,7 @@ namespace ImageShrinker
 
         }
 
+        /*
         private void GenerateWp7Icons(string path)
         {
             // Create the folder if needed
@@ -205,9 +206,9 @@ namespace ImageShrinker
             EncodeAndSave(Wp7Icon300, "StoreIcon.png", path);
             EncodeAndSave(Wp7Icon173, "Background.png", path);
             EncodeAndSave(Wp7Icon62, "ApplicationIcon.png", path);
-        }
+        }*/
 
-        private void GenerateWp8Icons(string path)
+        /*private void GenerateWp8Icons(string path)
         {
             // Create the folder if needed
             path = path + "\\" + projectName.Text + " WP8 Icons";
@@ -230,7 +231,7 @@ namespace ImageShrinker
             EncodeAndSave(Wp8FlipSmall_150, "Square150Logo.png", path);
             EncodeAndSave(Wp8FlipSmall_170, "Square170Logo.png", path);
             EncodeAndSave(Wp8FlipSmall_210, "Square210Logo.png", path);
-        }
+        }*/
 
         private void GenerateWin8Icons(string path)
         {
@@ -375,14 +376,14 @@ namespace ImageShrinker
             CompleteNotice.Content = notice1;
 
             // WP7
-            Wp7Icon300.Fill = null;
+            /*Wp7Icon300.Fill = null;
             Wp7Icon173.Fill = null;
             Wp7Icon62.Fill = null;
 
             // WP8
             Wp8AppIcon.Fill = null;
             Wp8FlipMedium.Fill = null;
-            Wp8FlipSmall.Fill = null;
+            Wp8FlipSmall.Fill = null;*/
 
             // Win8
             Win8Logo180.Fill = null;
@@ -502,7 +503,7 @@ namespace ImageShrinker
             brush.Stretch = Stretch.Fill;
 
             // WP7
-            Wp7Icon300.Fill = brush;
+            /*Wp7Icon300.Fill = brush;
             Wp7Icon173.Fill = brush;
             Wp7Icon62.Fill = brush;
 
@@ -522,7 +523,7 @@ namespace ImageShrinker
             Wp8FlipSmall_150.Fill = brush;
             Wp8FlipSmall_170.Fill = brush;
             Wp8FlipSmall_210.Fill = brush;
-            Wp8FlipSmall_360.Fill = brush;
+            Wp8FlipSmall_360.Fill = brush;*/
 
             // Win8
             Win8Logo180.Fill = brush;
