@@ -22,7 +22,6 @@ namespace ImageShrinker
         public Window1()
         {
             InitializeComponent();
-
             RenderOptions.SetBitmapScalingMode(this, BitmapScalingMode.HighQuality);
         }
 
@@ -72,6 +71,16 @@ namespace ImageShrinker
                 ShowImage(dlg.FileName);
             }
             IsPasted = false;
+        }
+
+        private void Open_Click_Background(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Open_Click_Foreground(object sender, RoutedEventArgs e)
+        {
+
         }
 
         /// <summary>
@@ -152,7 +161,8 @@ namespace ImageShrinker
         #region SaveIcons
         private async void Save_Click(object sender, RoutedEventArgs e)
         {
-            if (Win8Logo180.Fill != null)
+            //if (Win8Logo180.Fill != null)
+            if (true)
             {
                 // due to virtualisation, WPF doesn't render each tab until the SelectedIndex changes
                 // This is a little hack using .Net 4.5 awaitable, it will change the tab, yield back to the UI renderer, then continue.
@@ -168,7 +178,7 @@ namespace ImageShrinker
                 string path = System.IO.Path.GetDirectoryName(this.fileName);
                 //GenerateWp7Icons(path);
                 //GenerateWp8Icons(path);
-                GenerateWin8Icons(path);
+                //GenerateWin8Icons(path);
                 GenerateAndroidIcons(path);
 
                 string folder = "On same folder with your image";
@@ -242,25 +252,27 @@ namespace ImageShrinker
                 Directory.CreateDirectory(path);
             }
 
+            System.Console.WriteLine("Windows 8 Icons are now obsolete..." +
+                "years has passed since windows release or sell this devices");
             // Generate the icons
-            EncodeAndSave(Win8Logo180, "Logo.scale-180.png", path);
-            EncodeAndSave(Win8Logo140, "Logo.scale-140.png", path);
-            EncodeAndSave(Win8Logo100, "Logo.scale-100.png", path);
-            EncodeAndSave(Win8Logo80, "Logo.scale-80.png", path);
+            //EncodeAndSave(Win8Logo180, "Logo.scale-180.png", path);
+            //EncodeAndSave(Win8Logo140, "Logo.scale-140.png", path);
+            //EncodeAndSave(Win8Logo100, "Logo.scale-100.png", path);
+            //EncodeAndSave(Win8Logo80, "Logo.scale-80.png", path);
 
-            EncodeAndSave(Win8SmallLogo180, "SmallLogo.scale-180.png", path);
-            EncodeAndSave(Win8SmallLogo140, "SmallLogo.scale-140.png", path);
-            EncodeAndSave(Win8SmallLogo100, "SmallLogo.scale-100.png", path);
-            EncodeAndSave(Win8SmallLogo80, "SmallLogo.scale-80.png", path);
+            //EncodeAndSave(Win8SmallLogo180, "SmallLogo.scale-180.png", path);
+            //EncodeAndSave(Win8SmallLogo140, "SmallLogo.scale-140.png", path);
+            //EncodeAndSave(Win8SmallLogo100, "SmallLogo.scale-100.png", path);
+            //EncodeAndSave(Win8SmallLogo80, "SmallLogo.scale-80.png", path);
 
-            EncodeAndSave(Win8SmallLogoTarget256, "SmallLogo.target-256.png", path);
-            EncodeAndSave(Win8SmallLogoTarget48, "SmallLogo.target-48.png", path);
-            EncodeAndSave(Win8SmallLogoTarget32, "SmallLogo.target-32.png", path);
-            EncodeAndSave(Win8SmallLogoTarget16, "SmallLogo.target-16.png", path);
+            //EncodeAndSave(Win8SmallLogoTarget256, "SmallLogo.target-256.png", path);
+            //EncodeAndSave(Win8SmallLogoTarget48, "SmallLogo.target-48.png", path);
+            //EncodeAndSave(Win8SmallLogoTarget32, "SmallLogo.target-32.png", path);
+            //EncodeAndSave(Win8SmallLogoTarget16, "SmallLogo.target-16.png", path);
 
-            EncodeAndSave(Win8StoreLogo180, "StoreLogo.scale-180.png", path);
-            EncodeAndSave(Win8StoreLogo140, "StoreLogo.scale-140.png", path);
-            EncodeAndSave(Win8StoreLogo100, "StoreLogo.scale-100.png", path);
+            //EncodeAndSave(Win8StoreLogo180, "StoreLogo.scale-180.png", path);
+            //EncodeAndSave(Win8StoreLogo140, "StoreLogo.scale-140.png", path);
+            //EncodeAndSave(Win8StoreLogo100, "StoreLogo.scale-100.png", path);
         }
         private void GenerateAndroidIcons(string path)
         {
@@ -270,12 +282,12 @@ namespace ImageShrinker
             // Generate the Android Icon Res Foldes
 
             List<string> androidResFolders = new List<string>();
-            androidResFolders.Add(path + "\\drawable-ldpi"); // 120 dpi 
-            androidResFolders.Add(path + "\\drawable-mdpi"); // 160 dpi
-            androidResFolders.Add(path + "\\drawable-hdpi"); // 240 dpi
-            androidResFolders.Add(path + "\\drawable-xhdpi"); // 320 dpi
-            androidResFolders.Add(path + "\\drawable-xxhdpi"); // 480 dpi
-            androidResFolders.Add(path + "\\drawable-xxxhdpi"); // 640 dpi
+            androidResFolders.Add(path + "\\mipmap-ldpi"); // 120 dpi 
+            androidResFolders.Add(path + "\\mipmap-mdpi"); // 160 dpi
+            androidResFolders.Add(path + "\\mipmap-hdpi"); // 240 dpi
+            androidResFolders.Add(path + "\\mipmap-xhdpi"); // 320 dpi
+            androidResFolders.Add(path + "\\mipmap-xxhdpi"); // 480 dpi
+            androidResFolders.Add(path + "\\mipmap-xxxhdpi"); // 640 dpi
             //androidResFolders.Add("\\drawable-nodpi"); // 640 dpi ? not sure
             //androidResFolders.Add("\\drawable-tvdpi"); // 213 dpi
 
@@ -289,8 +301,8 @@ namespace ImageShrinker
 
             // Generate the icons
 
-            string iconName = "app_icon.png";
-
+            string iconName = "ic_launcher.png";
+            //manually sync the array path
             EncodeAndSave(Android_ldpi, iconName, androidResFolders.ElementAt(0));
             EncodeAndSave(Android_mdpi, iconName, androidResFolders.ElementAt(1));
             EncodeAndSave(Android_hdpi, iconName, androidResFolders.ElementAt(2));
@@ -298,7 +310,8 @@ namespace ImageShrinker
             EncodeAndSave(Android_xxhdpi, iconName, androidResFolders.ElementAt(4));
             EncodeAndSave(Android_xxxhdpi, iconName, androidResFolders.ElementAt(5));
             EncodeAndSave(AndroidStore_512, "StoreIcon512.png", path);
-            EncodeAndSave(AndroidStore_114, "StoreIcon114.png", path);
+            
+            //EncodeAndSave(AndroidStore_114, "StoreIcon114.png", path);//This is Amazon AppStore?
 
         }
 
@@ -338,7 +351,7 @@ namespace ImageShrinker
 
         private string fileName;
         BitmapImage imageSource;
-        double scale = 1.0;
+        private double scale = 1.0;
 
         private void myImage_Drop(object sender, DragEventArgs e)
         {
@@ -375,38 +388,9 @@ namespace ImageShrinker
             projectName.Text = name;
             CompleteNotice.Content = notice1;
 
-            // WP7
-            /*Wp7Icon300.Fill = null;
-            Wp7Icon173.Fill = null;
-            Wp7Icon62.Fill = null;
-
-            // WP8
-            Wp8AppIcon.Fill = null;
-            Wp8FlipMedium.Fill = null;
-            Wp8FlipSmall.Fill = null;*/
-
-            // Win8
-            Win8Logo180.Fill = null;
-            Win8Logo140.Fill = null;
-            Win8Logo100.Fill = null;
-            Win8Logo80.Fill = null;
-
-            Win8SmallLogo180.Fill = null;
-            Win8SmallLogo140.Fill = null;
-            Win8SmallLogo100.Fill = null;
-            Win8SmallLogo80.Fill = null;
-            Win8SmallLogoTarget256.Fill = null;
-            Win8SmallLogoTarget48.Fill = null;
-            Win8SmallLogoTarget32.Fill = null;
-            Win8SmallLogoTarget16.Fill = null;
-
-            Win8StoreLogo180.Fill = null;
-            Win8StoreLogo140.Fill = null;
-            Win8StoreLogo100.Fill = null;
-
             myCanvas.Children.Remove(rectFrame);
 
-            UpdatePreviewIcons(new Point(0, 0), new Point(imageSource.Width*2, imageSource.Height*2));
+            UpdatePreviewIcons(new Point(0, 0), new Point(imageSource.Width, imageSource.Height));
         }
 
         private string IsSingleFile(DragEventArgs args)
@@ -501,51 +485,7 @@ namespace ImageShrinker
             brush.Viewbox = new Rect(sourceLt, sourceRb);
             brush.ViewboxUnits = BrushMappingMode.Absolute;
             brush.Stretch = Stretch.Fill;
-
-            // WP7
-            /*Wp7Icon300.Fill = brush;
-            Wp7Icon173.Fill = brush;
-            Wp7Icon62.Fill = brush;
-
-            // WP8
-            Wp8AppIcon.Fill = brush;
-            Wp8FlipMedium.Fill = brush;
-            Wp8FlipSmall.Fill = brush;
-            //Updating to the new windows store.
-            Wp8FlipSmall_44.Fill = brush;
-            Wp8FlipSmall_50.Fill = brush;
-            Wp8FlipSmall_62.Fill = brush;
-            Wp8FlipSmall_70.Fill = brush;
-            Wp8FlipSmall_71.Fill = brush;
-            Wp8FlipSmall_99.Fill = brush;
-            Wp8FlipSmall_50.Fill = brush;
-            Wp8FlipSmall_106.Fill = brush;
-            Wp8FlipSmall_150.Fill = brush;
-            Wp8FlipSmall_170.Fill = brush;
-            Wp8FlipSmall_210.Fill = brush;
-            Wp8FlipSmall_360.Fill = brush;*/
-
-            // Win8
-            Win8Logo180.Fill = brush;
-            Win8Logo140.Fill = brush;
-            Win8Logo100.Fill = brush;
-            Win8Logo80.Fill = brush;
-
-            Win8SmallLogo180.Fill = brush;
-            Win8SmallLogo140.Fill = brush;
-            Win8SmallLogo100.Fill = brush;
-            Win8SmallLogo80.Fill = brush;
-            Win8SmallLogoTarget256.Fill = brush;
-            Win8SmallLogoTarget48.Fill = brush;
-            Win8SmallLogoTarget32.Fill = brush;
-            Win8SmallLogoTarget16.Fill = brush;
-
-            Win8StoreLogo180.Fill = brush;
-            Win8StoreLogo140.Fill = brush;
-            Win8StoreLogo100.Fill = brush;
-
             //Android Icons with google play store
-
             Android_ldpi.Fill = brush;
             Android_mdpi.Fill = brush;
             Android_hdpi.Fill = brush;
@@ -553,10 +493,8 @@ namespace ImageShrinker
             Android_xxhdpi.Fill = brush;
             Android_xxxhdpi.Fill = brush;
             AndroidStore_512.Fill = brush;
-            AndroidStore_114.Fill = brush;
+            //AndroidStore_114.Fill = brush;
         }
-
         #endregion MouseMove
-
     }
 }
